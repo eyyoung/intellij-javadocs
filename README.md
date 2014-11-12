@@ -7,4 +7,4 @@ Home page: http://setial.github.com/intellij-javadocs/
 
 Wiki: https://github.com/setial/intellij-javadocs/wiki
 
-Last plugin deployment jar: https://github.com/setial/intellij-javadocs/raw/master/ideajavadocs.zip
+Edit the plugin in order to Support the $date and $author param.
