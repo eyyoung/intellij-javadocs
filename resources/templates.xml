@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <class>
+        <template regexp="^.*(public|protected|private)*.+interface\s+\w+.*">
+            /**\n
+            * @ClassName:$element.getName()\n
+            * @Function:\n
+            * @Reason:\n
+            * \n
+            * @author   $author\n
+            * @date   $date\n
+            * @see\n
+            */
+        </template>
+        <template regexp="^.*(public|protected|private)*.+enum\s+\w+.*">
+            /**\n
+            * @ClassName:$element.getName()\n
+            * @Function:\n
+            * @Reason:\n
+            * \n
+            * @author   $author\n
+            * @date   $date\n
+            * @see\n
+            */
+        </template>
+        <template regexp="^.*(public|protected|private)*.+class\s+\w+.*">
+            /**\n
+            * @ClassName:$element.getName()\n
+            * @Function:\n
+            * @Reason:\n
+            * \n
+            * @author   $author\n
+            * @date   $date\n
+            * @see\n
+            */
+        </template>
+        <template regexp=".+">
+/**\n
+ * The type $name.\n
+ */
+        </template>
+    </class>
+
+    <field>
+        <template regexp="^.*(public|protected|private)*.+static.*(\w\s\w)+.+">
+/**\n
+ * The constant $element.getName().\n
+ */
+        </template>
+        <template regexp="^.*(public|protected|private)*.*(\w\s\w)+.+">
+/**\n
+ * The $name.\n
+ */
+        </template>
+        <template regexp=".+">
+/**\n
+ * The $name.\n
+ */
+        </template>
+    </field>
+
+    <method>
+        <template regexp=".+">
+            /**\n
+            * @函数名称     :$element.getName()\n
+            * @brief\n
+            * @see\n
+            * #if($partName.isEmpty()) $return#end\n
+
+            #if(!$element.parameterList.parameters.isEmpty())
+            *\n
+            #end
+
+            #foreach($typeParameter in $element.typeParameters)
+            * @param &lt;$typeParameter.name&gt; \n
+            #end
+
+            #foreach($parameter in $element.parameterList.parameters)
+            * @param $parameter.name\n
+            #end
+
+            #if($isNotVoid)
+            *\n
+            * @return $return\n
+            #end
+
+            #if(!$element.throwsList.referenceElements.isEmpty())
+            *\n
+            #end
+            #foreach($exception in $element.throwsList.referenceElements)
+            * @throws $exception.referenceName\n
+            #end
+            * @author          :  $author\n
+            * @date          :  $date\n
+            */
+        </template>
+    </method>
+
+    <constructor>
+        <template regexp=".+">
+            /**\n
+            * 构造器\n
+
+            #if(!$element.parameterList.parameters.isEmpty())
+            *\n
+            #end
+            #foreach($parameter in $element.parameterList.parameters)
+            * @param $parameter.name\n
+            #end
+
+            #if(!$element.throwsList.referenceElements.isEmpty())
+            *\n
+            #end
+            #foreach($exception in $element.throwsList.referenceElements)
+            * @throws $exception.referenceName\n
+            #end
+
+            */
+        </template>
+    </constructor>
+
+</templates>
